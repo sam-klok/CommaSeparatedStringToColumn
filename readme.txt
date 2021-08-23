@@ -5,7 +5,7 @@ into nice, formatted list of separate items.
 
 I actully wrote this progam under Windows long time ago and use it for coding purpuses. 
 I'm planning to rewrite it with WPF. 
-But for now, let's try TypeScript, should work everywhere. 
+But for now, let's try TypeScript, should work everywhere - just download locally on your PC.
 
 Funny that many TypeScript errors, explained on Stack Overflow as "Angular" errors.. :)
 But this is not an Angular example. Pure HTML + TypeScript. 
