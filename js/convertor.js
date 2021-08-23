@@ -1,14 +1,11 @@
-function addFewSymbols(){
+"use strict";
+function addFewSymbols() {
     var elementInput = document.getElementById('txtInput');
-    if (elementInput)
-    {
+    if (elementInput) {
         //var txtInput = elementInput.innerText;
-        var txtInput = (elementInput as HTMLTextAreaElement).value;
-
+        var txtInput = elementInput.value;
         var newText = txtInput + " : modified text";
-
-        document.getElementById('txtOutput')!.innerText = newText;  // look at "!" sign 
-
+        document.getElementById('txtOutput').innerText = newText; // look at "!" sign 
         // var outputElement = document.getElementById('txtOutput');
         // if (outputElement)
         // {
@@ -16,8 +13,7 @@ function addFewSymbols(){
         // }
     }
 }
-
-document.getElementById("btnConvert")!.addEventListener('click',addFewSymbols);
-
+document.getElementById("btnConvert").addEventListener('click', addFewSymbols);
 //var btnConvert = document.getElementById("btnConvert");
 //btnConvert!.addEventListener('click',addFewSymbols);
+//# sourceMappingURL=convertor.js.map
