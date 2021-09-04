@@ -1,5 +1,5 @@
-function SplitString(src: string): string{
-    var lines = src.split(",")
+ function SplitString(src: string, separator: string): string{
+    var lines = src.split(separator)
                 
                 // trim spaces
                 .map(function(item) { 
@@ -14,14 +14,25 @@ function SplitString(src: string): string{
                 .join("\n,");
                 //.join("<br>, ");   // we should not use BR.
     return lines;
-}
+};
 
-function callSplitString(){
+function callSplitStringComma(){
     var sourceText = (document.getElementById('txtInput')! as HTMLTextAreaElement).value;
-    (document.getElementById('txtOutput')! as HTMLTextAreaElement).innerHTML = SplitString(sourceText);
+    (document.getElementById('txtOutput')! as HTMLTextAreaElement).innerHTML = SplitString(sourceText,",");
 }
 
-document.getElementById("btnConvert")!.addEventListener('click',callSplitString);
+function callSplitStringSemi(){
+    var sourceText = (document.getElementById('txtInput')! as HTMLTextAreaElement).value;
+    (document.getElementById('txtOutput')! as HTMLTextAreaElement).innerHTML = SplitString(sourceText,";");
+}
+
+document.getElementById("btnConvertComma")!.addEventListener('click',callSplitStringComma);
+document.getElementById("btnConvertSemi")!.addEventListener('click',callSplitStringSemi);
+
+
+
+
+
 
 // another test method, ignore it
 function addFewSymbols(){
@@ -30,9 +41,7 @@ function addFewSymbols(){
     {
         //var txtInput = elementInput.innerText;
         var txtInput = (elementInput as HTMLTextAreaElement).value;
-
         var newText = txtInput + " : modified text";
-
         document.getElementById('txtOutput')!.innerText = newText;  // look at "!" sign 
     }
-}
+};
