@@ -21,3 +21,14 @@ https://stackoverflow.com/questions/14727044/what-is-the-difference-between-type
 
 Pluralsight tutorial video which been used:
 TypeScript: Getting Started By Brice Wilson
+
+
+Some tips:
+1. To compile TypeScript file to JavaScript use command:
+tsc
+
+1.1 Don't use command below, 
+because it will not use configuration and will not put .js file in the right folder:
+tsc convertor.ts
+
+2. 
