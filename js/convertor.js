@@ -22,8 +22,13 @@ function callSplitStringSemi() {
     var sourceText = document.getElementById('txtInput').value;
     document.getElementById('txtOutput').innerHTML = SplitString(sourceText, ";");
 }
+function callSplitStringOr() {
+    var sourceText = document.getElementById('txtInput').value;
+    document.getElementById('txtOutput').innerHTML = SplitString(sourceText, "||");
+}
 document.getElementById("btnConvertComma").addEventListener('click', callSplitStringComma);
 document.getElementById("btnConvertSemi").addEventListener('click', callSplitStringSemi);
+document.getElementById("btnConvertOr").addEventListener('click', callSplitStringOr);
 // another test method, ignore it
 function addFewSymbols() {
     var elementInput = document.getElementById('txtInput');

@@ -26,8 +26,14 @@ function callSplitStringSemi(){
     (document.getElementById('txtOutput')! as HTMLTextAreaElement).innerHTML = SplitString(sourceText,";");
 }
 
+function callSplitStringOr(){
+    var sourceText = (document.getElementById('txtInput')! as HTMLTextAreaElement).value;
+    (document.getElementById('txtOutput')! as HTMLTextAreaElement).innerHTML = SplitString(sourceText,"||");
+}
+
 document.getElementById("btnConvertComma")!.addEventListener('click',callSplitStringComma);
 document.getElementById("btnConvertSemi")!.addEventListener('click',callSplitStringSemi);
+document.getElementById("btnConvertOr")!.addEventListener('click',callSplitStringOr);
 
 
 
