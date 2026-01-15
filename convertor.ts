@@ -17,10 +17,35 @@
     return lines;
 };
 
+ function SplitStringBehind(src: string, separator: string): string{
+    src = src.replace(/\n|\r/g,"");  // remove all line breaks
+    var parts = src.split(separator)
+        // trim spaces
+        .map(function(item) { 
+            return item.trim(); 
+        })
+
+        // remove empty strings
+        .filter(function (el) {
+            return el != null && el != "";
+        });
+
+    var lines = parts.map(function(item, index){
+        return item + (index < parts.length - 1 ? separator + " " : "");
+    }).join("\n ");
+
+    return lines;
+};
+
 // conversions 
 function callSplitStringComma(){
     var sourceText = (document.getElementById('txtInput')! as HTMLTextAreaElement).value;
     (document.getElementById('txtOutput')! as HTMLTextAreaElement).innerHTML = SplitString(sourceText,",");
+}
+
+function callSplitStringCommaBehind(){
+    var sourceText = (document.getElementById('txtInput')! as HTMLTextAreaElement).value;
+    (document.getElementById('txtOutput')! as HTMLTextAreaElement).innerHTML = SplitStringBehind(sourceText,",");
 }
 
 function callSplitStringSemi(){
@@ -46,6 +71,7 @@ document.getElementById("btnSetTestSemi")!.addEventListener('click',setTestDataS
 document.getElementById("btnSetTestOr")!.addEventListener('click',setTestDataOr);
 
 document.getElementById("btnConvertComma")!.addEventListener('click',callSplitStringComma);
+document.getElementById("btnConvertCommaBehind")!.addEventListener('click',callSplitStringCommaBehind);
 document.getElementById("btnConvertSemi")!.addEventListener('click',callSplitStringSemi);
 document.getElementById("btnConvertOr")!.addEventListener('click',callSplitStringOr);
 

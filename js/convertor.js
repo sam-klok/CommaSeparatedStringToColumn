@@ -1,4 +1,3 @@
-"use strict";
 function SplitString(src, separator) {
     src = src.replace(/\n|\r/g, ""); // remove all line breaks
     var lines = src.split(separator)
@@ -15,10 +14,31 @@ function SplitString(src, separator) {
     return lines;
 }
 ;
+function SplitStringBehind(src, separator) {
+    src = src.replace(/\n|\r/g, ""); // remove all line breaks
+    var parts = src.split(separator)
+        // trim spaces
+        .map(function (item) {
+        return item.trim();
+    })
+        // remove empty strings
+        .filter(function (el) {
+        return el != null && el != "";
+    });
+    var lines = parts.map(function (item, index) {
+        return item + (index < parts.length - 1 ? separator + " " : "");
+    }).join("\n ");
+    return lines;
+}
+;
 // conversions 
 function callSplitStringComma() {
     var sourceText = document.getElementById('txtInput').value;
     document.getElementById('txtOutput').innerHTML = SplitString(sourceText, ",");
+}
+function callSplitStringCommaBehind() {
+    var sourceText = document.getElementById('txtInput').value;
+    document.getElementById('txtOutput').innerHTML = SplitStringBehind(sourceText, ",");
 }
 function callSplitStringSemi() {
     var sourceText = document.getElementById('txtInput').value;
@@ -38,6 +58,7 @@ function setTestDataOr() {
 document.getElementById("btnSetTestSemi").addEventListener('click', setTestDataSemi);
 document.getElementById("btnSetTestOr").addEventListener('click', setTestDataOr);
 document.getElementById("btnConvertComma").addEventListener('click', callSplitStringComma);
+document.getElementById("btnConvertCommaBehind").addEventListener('click', callSplitStringCommaBehind);
 document.getElementById("btnConvertSemi").addEventListener('click', callSplitStringSemi);
 document.getElementById("btnConvertOr").addEventListener('click', callSplitStringOr);
 // another test method, ignore it
@@ -51,4 +72,3 @@ function addFewSymbols() {
     }
 }
 ;
-//# sourceMappingURL=convertor.js.map

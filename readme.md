@@ -11,7 +11,7 @@ Funny that many TypeScript errors, explained on Stack Overflow as "Angular" erro
 But this is not an Angular example. Pure HTML + TypeScript. 
 
 thank you,
-Sam Klok
+Sam Klok (Sergiy Klokov)
 
 Some articles which been used:
 https://stackoverflow.com/questions/43218680/document-getelementbyidid-may-be-null
@@ -31,4 +31,10 @@ tsc
 because it will not use configuration and will not put .js file in the right folder:
 tsc convertor.ts
 
-2. 
+2. install TypeScript if needed:
+npm install -g typescript
+tsc --version
+tsc
+
+and compile by command:
+npx tsc convertor.ts --outDir js
